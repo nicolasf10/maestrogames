@@ -5,6 +5,15 @@ import confetti from 'canvas-confetti';
 
 const SNIPPET_LEVELS = [0.5, 1, 2, 5, 10]; // seconds: 0.5s -> 1s -> 2s -> 5s -> 10s
 
+const shuffleSongs = (songs) => {
+  const shuffled = [...songs];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+  }
+  return shuffled;
+};
+
 export const MusicGuessGame = ({ onBack, customSongs = null }) => {
   const [gameState, setGameState] = useState('INTRO'); // 'INTRO' | 'PLAYING' | 'SOLVED' | 'REVEALED'
   const [selectedDifficulty, setSelectedDifficulty] = useState('all'); // 'all' | 'easy' | 'medium' | 'hard'
@@ -27,7 +36,7 @@ export const MusicGuessGame = ({ onBack, customSongs = null }) => {
       ? list
       : list.filter(song => song.difficulty === selectedDifficulty);
 
-    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+    const shuffled = shuffleSongs(filtered);
     setSongList(shuffled.length > 0 ? shuffled : list);
   }, [selectedDifficulty, customSongs]);
 
@@ -45,7 +54,7 @@ export const MusicGuessGame = ({ onBack, customSongs = null }) => {
   const currentDuration = SNIPPET_LEVELS[levelIndex] || 0.5;
 
   // Load song at index
-  const loadSong = (index) => {
+  const loadSong = (index, songs = songList) => {
     setCurrentIndex(index);
     setLevelIndex(0);
     setUserGuess('');
@@ -58,7 +67,7 @@ export const MusicGuessGame = ({ onBack, customSongs = null }) => {
 
     if (playerRef.current && playerRef.current.loadVideoById) {
       playerRef.current.loadVideoById({
-        videoId: (songList[index] || YOUTUBE_SONGS[0]).id,
+        videoId: (songs[index] || YOUTUBE_SONGS[0]).id,
         startSeconds: randomStart
       });
       playerRef.current.pauseVideo();
@@ -68,7 +77,9 @@ export const MusicGuessGame = ({ onBack, customSongs = null }) => {
   const startGame = () => {
     setScore(0);
     setGameState('PLAYING');
-    loadSong(0);
+    const shuffled = shuffleSongs(songList);
+    setSongList(shuffled);
+    loadSong(0, shuffled);
   };
 
   // Instantiate YouTube YT.Player when container mounts
@@ -175,10 +186,10 @@ export const MusicGuessGame = ({ onBack, customSongs = null }) => {
       setGameState('PLAYING');
       loadSong(currentIndex + 1);
     } else {
-      const reshuffled = [...songList].sort(() => Math.random() - 0.5);
+      const reshuffled = shuffleSongs(songList);
       setSongList(reshuffled);
       setGameState('PLAYING');
-      loadSong(0);
+      loadSong(0, reshuffled);
     }
   };
 
