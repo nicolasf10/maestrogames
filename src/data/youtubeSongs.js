@@ -74,6 +74,43 @@ export const YOUTUBE_SONGS = [
     keywords: ['perfect', 'ed sheeran']
   },
 
+  // 🟢 EASY (ישראלי - קלאסיקות ולהיטים מוכרים)
+  {
+    id: 'Y0KxZz5k-RE',
+    title: 'שלמה ארצי - תתארו לכם',
+    difficulty: 'easy',
+    category: 'ישראלי קלאסי',
+    keywords: ['תתארו לכם', 'שלמה ארצי', 'shlomo artzi']
+  },
+  {
+    id: 'cSkTzkGoot0',
+    title: 'אודיה - אם הייתי צריכה',
+    difficulty: 'easy',
+    category: 'ישראלי חדש',
+    keywords: ['אם הייתי צריכה', 'אודיה', 'odeya']
+  },
+  {
+    id: 'RFZQvcKGGhU',
+    title: 'בר צברי - תחכי לי אהובה',
+    difficulty: 'easy',
+    category: 'ישראלי חדש',
+    keywords: ['תחכי לי אהובה', 'בר צברי', 'bar tzabary']
+  },
+  {
+    id: 'Maf6BaEhCzY',
+    title: 'רביד פלוטניק - נתראה בגלגול הבא',
+    difficulty: 'easy',
+    category: 'היפהופ ישראלי',
+    keywords: ['נתראה בגלגול הבא', 'רביד פלוטניק', 'ravid plotnik']
+  },
+  {
+    id: '__Bkfullk7c',
+    title: 'שאזאמאט - מכה בכנף',
+    difficulty: 'easy',
+    category: 'אינדי ישראלי',
+    keywords: ['מכה בכנף', 'שאזאמאט', 'shazamat']
+  },
+
   // 🟡 MEDIUM (בינוני - רוק קלאסי, שירים ישראליים מובילים)
   {
     id: 'v2AC41dglnM',
@@ -130,6 +167,34 @@ export const YOUTUBE_SONGS = [
     difficulty: 'medium',
     category: 'רוק קלאסי',
     keywords: ['californication', 'red hot chili peppers']
+  },
+  {
+    id: 'PUOTuPY6kBI',
+    title: 'שלמה ארצי - אהבתיה',
+    difficulty: 'medium',
+    category: 'ישראלי קלאסי',
+    keywords: ['אהבתיה', 'פתאום עכשיו פתאום היום', 'שלמה ארצי', 'shlomo artzi']
+  },
+  {
+    id: '003jn0Pe3N0',
+    title: 'תמיר בר - תקווה',
+    difficulty: 'medium',
+    category: 'היפהופ ישראלי',
+    keywords: ['תקווה', 'תמיר בר', 'tamir bar']
+  },
+  {
+    id: 'FMkjNrQprBo',
+    title: 'תמיר בר ורביד פלוטניק - לא ממהר',
+    difficulty: 'medium',
+    category: 'היפהופ ישראלי',
+    keywords: ['לא ממהר', 'תמיר בר', 'רביד פלוטניק', 'tamir bar', 'ravid plotnik']
+  },
+  {
+    id: 'e3dqznwTBdU',
+    title: 'ג׳ימבו ג׳יי ולהקת ספא עם רביד פלוטניק - חתולים',
+    difficulty: 'medium',
+    category: 'היפהופ ישראלי',
+    keywords: ['חתולים', 'ג׳ימבו ג׳יי', 'רביד פלוטניק', 'jimbon jay', 'ravid plotnik']
   },
 
   // 🔴 HARD (קשה - רוק ישן, מטאל & שירים מורכבים)
