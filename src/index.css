@@ -1,0 +1,142 @@
+/* MAESTRO GAMES - Neon Arcade Global Styles */
+:root {
+  --bg-deep: #050814;
+  --bg-surface: #0a1128;
+  --card-bg: rgba(13, 22, 48, 0.75);
+  --card-bg-hover: rgba(20, 35, 75, 0.85);
+  --card-border: rgba(0, 240, 255, 0.3);
+  --card-border-glow: rgba(0, 240, 255, 0.8);
+  
+  --neon-cyan: #00f0ff;
+  --neon-blue: #3b82f6;
+  --neon-deep-blue: #1d4ed8;
+  --neon-purple: #8b5cf6;
+  --neon-pink: #f43f5e;
+  --neon-yellow: #fbbf24;
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+
+  --font-arcade: 'Orbitron', sans-serif;
+  --font-retro: 'Press Start 2P', monospace;
+  --font-body: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    linear-gradient(to bottom, #050814 0%, #080d21 100%);
+  background-attachment: fixed;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* Neon Text Utilities */
+.neon-text-cyan {
+  color: var(--neon-cyan);
+  text-shadow: 
+    0 0 5px rgba(0, 240, 255, 0.8),
+    0 0 12px rgba(0, 240, 255, 0.5),
+    0 0 25px rgba(0, 240, 255, 0.3);
+}
+
+.neon-text-blue {
+  color: #60a5fa;
+  text-shadow: 
+    0 0 5px rgba(59, 130, 246, 0.8),
+    0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Neon Glow Border Utilities */
+.neon-box {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    inset 0 0 15px rgba(0, 240, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neon-box:hover {
+  border-color: var(--card-border-glow);
+  box-shadow: 
+    0 10px 40px 0 rgba(0, 240, 255, 0.25),
+    0 0 15px rgba(0, 240, 255, 0.4),
+    inset 0 0 20px rgba(0, 240, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8));
+  }
+  50% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 16px rgba(0, 240, 255, 1));
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes coinBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-pulse-glow {
+  animation: neonPulse 3s infinite ease-in-out;
+}
+
+.animate-coin {
+  animation: coinBlink 1.5s infinite;
+}
+
+.animate-float {
+  animation: floatAnim 3s ease-in-out infinite;
+}
