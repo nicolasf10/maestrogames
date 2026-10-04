@@ -1,4 +1,5 @@
 import { ADDITIONAL_YOUTUBE_SONGS } from './additionalYoutubeSongs.js';
+import { ADDITIONAL_YOUTUBE_SONGS_BATCH_TWO } from './additionalYoutubeSongsBatchTwo.js';
 
 // 100% Verified YouTube Music Collection
 // Every Video ID is verified 200 OK with official YouTube oEmbed API
@@ -736,7 +737,8 @@ export const YOUTUBE_SONGS = [
     category: 'פסקולים',
     keywords: ['let it go', 'frozen']
   },
-  ...ADDITIONAL_YOUTUBE_SONGS
+  ...ADDITIONAL_YOUTUBE_SONGS,
+  ...ADDITIONAL_YOUTUBE_SONGS_BATCH_TWO
 ];
 
 export const DEFAULT_YOUTUBE_SONGS = YOUTUBE_SONGS;
